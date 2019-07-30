@@ -57,24 +57,6 @@ db.movies.aggregate(pipeline2)
 //Lookup
 var pipeline3 = [{
     $match: {
-      "airplane": {
-        $in: ["747", "380"]
-      }
-    }
-  },
-  {
-    $lookup: {
-      from: "air_alliances",
-      localField: "airline.name",
-      foreignField: "airlines",
-      as: "airline_info"
-    }
-  }
-]
-
-
-var pipeline3 = [{
-    $match: {
       airplane: /747|380/
     }
   },
