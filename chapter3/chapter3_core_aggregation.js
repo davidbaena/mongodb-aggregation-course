@@ -178,7 +178,7 @@ var pipeline4 = [{
   },
   {
     $facet: {
-      top_metacritic: [{
+      "top_metacritic": [{
           $sort: {
             "metacritic": -1,
             "title": 1
@@ -193,7 +193,7 @@ var pipeline4 = [{
           }
         }
       ],
-      top_imdb: [{
+      "top_imdb": [{
           $sort: {
             "imdb.rating": -1,
             "title": 1
@@ -213,9 +213,9 @@ var pipeline4 = [{
   {
     $project: {
       movies_in_both: {
-        $setIntersection: ["$top_metacritic", "top_imdb"]
+        $setIntersection: ["$top_metacritic", "$top_imdb"]
       }
     }
   }
 ]
-db.air_routes.aggregate(pipeline4)
+db.movies.aggregate(pipeline4)
