@@ -37,9 +37,6 @@ var pipeline = [{
             }
           }
         ]
-
-
-
         var a = db.movies.aggregate(pipeline)
 
         var pipeline = [{
